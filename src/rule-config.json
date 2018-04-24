@@ -1,8 +1,0 @@
-{
-  "fileName": "./dal.js",
-  "functionName": "getBankAccounts",
-  "restictCodePath": {
-    "fileName": "api.js",
-    "functionName:" "getBankAccounts"
-  }
-}
