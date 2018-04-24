@@ -1,7 +1,7 @@
 var rules = require('../rules')
 var t = require('babel-types')
 
-function generateCheckStack(fns, prevBody) {
+function generateCheckStack(fns, sfn) {
   let props = []
 
   return t.ifStatement(
@@ -21,7 +21,7 @@ function generateCheckStack(fns, prevBody) {
       t.expressionStatement(
         t.callExpression(
           t.memberExpression(t.identifier("console"), t.identifier("log")),
-          [t.stringLiteral("Unauthorized call to dbCall. exiting...")]
+          [t.stringLiteral(`Unauthorized call to ${sfn}. exiting...`)]
       )),
       t.expressionStatement(
         t.callExpression(
@@ -46,7 +46,7 @@ module.exports = function({ types: t }) {
             })
             path.get("body").unshiftContainer(
               'body',
-              generateCheckStack(allowedFns, path.get("body"))
+              generateCheckStack(allowedFns, path.node.id.name)
             )
           }
         }
