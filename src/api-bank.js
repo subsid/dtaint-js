@@ -8,7 +8,12 @@ function getBankData(req, res) {
   res.json(result)
 }
 
+function getInfo(req, res) {
+  res.json(Dal.getInfo(req.body.name))
+}
+
 // define the home page route
 router.get('/bank-account', getBankData)
+router.get('/info', getInfo)
 
 module.exports = router

@@ -15,4 +15,4 @@ function callDb() {
   dbCall("callDb query")
 }
 
-callDb()
+makeDbCall1()

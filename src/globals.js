@@ -1,5 +1,5 @@
 global.stackContains = function (stack, fns) {
-  var stackFns = stack.split("at").map(function (v) {
+  var stackFns = stack.split("  at ").map(function (v) {
     return v.trim().split(" ");
   }).slice(1);
   for (var i = 0; i < fns.length; i++) {
